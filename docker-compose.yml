@@ -1,0 +1,17 @@
+version: "3.7"
+# コンテナの集まりの名前を定義
+services:
+    app:
+        # ./にあるDockerfileを使う と言う意味
+        build: .
+        # image名をここで編集する(変える)
+        image: rrrrind/learn-golang
+        # container名
+        container_name: "learn-golang"
+        # コンテナの永続化
+        tty: true
+        # コンテナからローカルへバインドマウントする
+        volumes: 
+            - type: bind
+              source: ./src
+              target: /go/src/app
